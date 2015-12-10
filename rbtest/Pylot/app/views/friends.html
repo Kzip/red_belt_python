@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+  welcome {{login}}
+  <a href="/logoff"> Click to logoff</a>
+  <div class="container">
+
+  <!--<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>User Name</th>
+        <th>Email</th>
+        <th>Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for index in users %}
+      <tr>
+        <td>{{index['name']}}</td>
+        <td>{{index['email']}}</td>
+        <td><form action="/add/{{index['ID']}}" method ='GET'><button type="submit" name="button"> Click to add {{index['ID']}}</button></form></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>-->
+  friends
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>you friends</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for friend in friends %}
+      <tr>
+        <td><a href="/user/{{friend['ID']}}">{{friend['name']}}</a></td>
+        <td>{{friend['email']}}</td>
+        <td><form action="/remove/{{friend['ID']}}" method ='GET'><button type="submit" name="button"> Click to remove {{friend['ID']}}</button></form></td>
+
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  not friends
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>User Name</th>
+        <th>Email</th>
+        <th>Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for index in notfriends %}
+      <tr>
+        <td>{{index['name']}}</td>
+        <td>{{index['email']}}</td>
+        <td><form action="/user/{{index['ID']}}" method ='GET'><button type="submit" name="button"> Click to view {{index['ID']}}</button></form></td>
+        <td><form action="/add/{{index['ID']}}" method ='GET'><button type="submit" name="button"> Click to add {{index['ID']}}</button></form></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+
+
+  </div>
+</body>
+</html>
